@@ -1,0 +1,36 @@
+{
+  "name": "@valora/resolve-kit",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint --ext=.tsx,.ts,.json --fix src/",
+    "format": "prettier --loglevel error --write \"./src/**/*.ts\"",
+    "test": "jest && prettier --check \"./src/**/*.ts\" && eslint --ext=.tsx,.ts,.json src/",
+    "prepublishOnly": "yarn build"
+  },
+  "repository": "git@github.com:valora-inc/resolve-kit.git",
+  "author": "Valora Inc",
+  "license": "Apache-2.0",
+  "prettier": "@valora/prettier-config",
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@valora/eslint-config-typescript": "^0.0.1",
+    "@valora/prettier-config": "^0.0.1",
+    "eslint": "^8.7.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-react-native": "^4.0.0",
+    "jest": "^27.4.7",
+    "prettier": "^2.5.1",
+    "ts-jest": "^27.1.3",
+    "typescript": "4.4.3"
+  },
+  "dependencies": {
+    "@celo/utils": "^1.5.1"
+  }
+}
