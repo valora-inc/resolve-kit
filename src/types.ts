@@ -1,6 +1,8 @@
+import { Address } from '@celo/base/lib/address'
+
 export interface NameResolution {
   kind: string
-  address: string
+  address: Address
 }
 
 export interface NameResolutionError {
