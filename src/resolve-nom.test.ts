@@ -7,7 +7,7 @@ describe('resolve-nom', () => {
       const mockNomKit = {
         resolve: (_: string) => '0x0000000000000000000000000000000000000000',
       } as unknown as NomKit
-      const resolver = new ResolveNom(mockNomKit)
+      const resolver = new ResolveNom({ nomKit: mockNomKit })
       const resolutions = await resolver.resolve('foo')
 
       expect(resolutions.nameResolutions.length).toBe(0)
@@ -20,7 +20,7 @@ describe('resolve-nom', () => {
           throw new Error('should not happen')
         },
       } as unknown as NomKit
-      const resolver = new ResolveNom(mockNomKit)
+      const resolver = new ResolveNom({ nomKit: mockNomKit })
       const tooLongId = new Array(33).join('x')
       const resolutions = await resolver.resolve(tooLongId)
 
@@ -32,7 +32,7 @@ describe('resolve-nom', () => {
       const mockNomKit = {
         resolve: (_: string) => '0x1212121212121212121212121212121212121212',
       } as unknown as NomKit
-      const resolver = new ResolveNom(mockNomKit)
+      const resolver = new ResolveNom({ nomKit: mockNomKit })
       const resolutions = await resolver.resolve('foo')
 
       expect(resolutions.nameResolutions.length).toBe(1)
@@ -45,7 +45,7 @@ describe('resolve-nom', () => {
           throw new Error('network error or something')
         },
       } as unknown as NomKit
-      const resolver = new ResolveNom(mockNomKit)
+      const resolver = new ResolveNom({ nomKit: mockNomKit })
       const resolutions = await resolver.resolve('foo')
 
       expect(resolutions.nameResolutions.length).toBe(0)

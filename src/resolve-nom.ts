@@ -1,4 +1,5 @@
 import { Address } from '@celo/base/lib/address'
+import { ContractKit } from '@celo/contractkit'
 import { NomKit } from '@nomspace/nomspace'
 import { NameResolver, NameResolutionResults } from './types'
 
@@ -12,8 +13,22 @@ export class ResolveNom implements NameResolver {
 
   private nomKit: NomKit
 
-  constructor(nomKit: NomKit) {
-    this.nomKit = nomKit
+  constructor({
+    kit,
+    contractAddress,
+    nomKit,
+  }: {
+    kit?: ContractKit
+    contractAddress?: Address
+    nomKit?: NomKit
+  }) {
+    if (nomKit) {
+      this.nomKit = nomKit
+    } else if (kit && contractAddress) {
+      this.nomKit = new NomKit(kit, contractAddress)
+    } else {
+      throw new Error('Missing kit and contractAddress')
+    }
   }
 
   async resolve(id: string): Promise<NameResolutionResults> {
