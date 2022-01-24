@@ -19,10 +19,7 @@
     "experimentalDecorators": true
   },
   "include": [
-    "scripts/**/*.ts",
-    "src/**/*.ts",
-    "src/**/*.json",
-    "types/*.ts"
+    "src/**/*.ts"
   ],
   "exclude": ["node_modules/**/*"]
 }
