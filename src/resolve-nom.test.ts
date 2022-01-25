@@ -10,7 +10,7 @@ describe('resolve-nom', () => {
       const resolver = new ResolveNom({ nomKit: mockNomKit })
       const resolutions = await resolver.resolve('foo')
 
-      expect(resolutions.nameResolutions.length).toBe(0)
+      expect(resolutions.resolutions.length).toBe(0)
       expect(resolutions.errors.length).toBe(0)
     })
 
@@ -24,7 +24,7 @@ describe('resolve-nom', () => {
       const tooLongId = new Array(33).join('x')
       const resolutions = await resolver.resolve(tooLongId)
 
-      expect(resolutions.nameResolutions.length).toBe(0)
+      expect(resolutions.resolutions.length).toBe(0)
       expect(resolutions.errors.length).toBe(0)
     })
 
@@ -35,7 +35,7 @@ describe('resolve-nom', () => {
       const resolver = new ResolveNom({ nomKit: mockNomKit })
       const resolutions = await resolver.resolve('foo')
 
-      expect(resolutions.nameResolutions.length).toBe(1)
+      expect(resolutions.resolutions.length).toBe(1)
       expect(resolutions.errors.length).toBe(0)
     })
 
@@ -48,7 +48,7 @@ describe('resolve-nom', () => {
       const resolver = new ResolveNom({ nomKit: mockNomKit })
       const resolutions = await resolver.resolve('foo')
 
-      expect(resolutions.nameResolutions.length).toBe(0)
+      expect(resolutions.resolutions.length).toBe(0)
       expect(resolutions.errors.length).toBe(1)
     })
   })

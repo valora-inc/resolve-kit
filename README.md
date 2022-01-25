@@ -21,8 +21,15 @@ const resolver = new ResolveGroup([
   new ResolveNom({ kit, contractAddress: ResolveNom.MainnetContractAddress }),
 ])
 
-console.log((await resolver.resolve('foo')).nameResolutions)
-console.log((await resolver.resolve('0x1212121212121212121212121212121212121212')).nameResolutions)
+// Likely resolve 'foo' to a nom with a resolution address
+const foo = await resolver.resolve('foo')
+console.log('foo resolutions:', foo.resolutions)
+console.log('foo errors:', foo.errors)
+
+// Resolves 0x1212121212121212121212121212121212121212 to an address
+const address = await resolver.resolve('0x1212121212121212121212121212121212121212')
+console.log('address resolutions:', address.resolutions)
+console.log('address errors:', address.errors)
 ```
 
 ## Developing

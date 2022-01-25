@@ -11,8 +11,8 @@ export class ResolveGroup implements NameResolver {
     const results = await Promise.all(
       this.resolvers.map((resolver) => resolver.resolve(id)),
     )
-    const nameResolutions = results.flatMap((result) => result.nameResolutions)
+    const resolutions = results.flatMap((result) => result.resolutions)
     const errors = results.flatMap((result) => result.errors)
-    return { nameResolutions, errors }
+    return { resolutions, errors }
   }
 }

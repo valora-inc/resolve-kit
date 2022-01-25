@@ -16,7 +16,7 @@ async function main(args: any) {
   if (resolutions.errors.length) {
     console.log('errors:', resolutions.errors)
   }
-  console.log('results:', resolutions.nameResolutions)
+  console.log('results:', resolutions.resolutions)
 }
 
 function parseArgs() {

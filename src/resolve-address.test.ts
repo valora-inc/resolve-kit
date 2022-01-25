@@ -6,7 +6,7 @@ describe('resolve-address', () => {
       const resolver = new ResolveAddress()
       const resolutions = await resolver.resolve('foo')
 
-      expect(resolutions.nameResolutions.length).toBe(0)
+      expect(resolutions.resolutions.length).toBe(0)
       expect(resolutions.errors.length).toBe(0)
     })
 
@@ -15,8 +15,8 @@ describe('resolve-address', () => {
       const resolver = new ResolveAddress()
       const resolutions = await resolver.resolve(address)
 
-      expect(resolutions.nameResolutions.length).toBe(1)
-      expect(resolutions.nameResolutions[0]).toStrictEqual({
+      expect(resolutions.resolutions.length).toBe(1)
+      expect(resolutions.resolutions[0]).toStrictEqual({
         kind: 'address',
         address,
       })

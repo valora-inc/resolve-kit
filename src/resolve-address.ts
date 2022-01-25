@@ -5,7 +5,7 @@ export class ResolveAddress implements NameResolver {
   async resolve(id: string): Promise<NameResolutionResults> {
     if (isValidAddress(id)) {
       return {
-        nameResolutions: [
+        resolutions: [
           {
             kind: 'address',
             address: id,
@@ -14,6 +14,6 @@ export class ResolveAddress implements NameResolver {
         errors: [],
       }
     }
-    return { nameResolutions: [], errors: [] }
+    return { resolutions: [], errors: [] }
   }
 }
