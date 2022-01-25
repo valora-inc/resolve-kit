@@ -12,20 +12,17 @@ yarn add @valora/resolve-kit
 
 ```ts
 import { newKit } from '@celo/contractkit'
-import { NomKit } from '@nomspace/nomspace'
 import { ResolveGroup, ResolveAddress, ResolveNom } from '@valora/resolve-kit'
 
 const kit = newKit('https://forno.celo.org')
-const nomKit = new NomKit(kit, ResolveNom.MainnetContractAddress)
 
 const resolver = new ResolveGroup([
   new ResolveAddress(),
-  new ResolveNom(nomKit),
+  new ResolveNom({ kit, contractAddress: ResolveNom.MainnetContractAddress }),
 ])
-const resolutions = await resolver.resolve(args.id)
 
-console.log('results:', resolutions.nameResolutions)
-console.log('errors:', resolutions.errors)
+console.log((await resolver.resolve('foo')).nameResolutions)
+console.log((await resolver.resolve('0x1212121212121212121212121212121212121212')).nameResolutions)
 ```
 
 ## Developing
