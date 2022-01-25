@@ -38,7 +38,7 @@ export class ResolveNom implements NameResolver {
         const resolution = await this.nomKit.resolve(id)
         if (resolution !== NullNomResolution) {
           return {
-            nameResolutions: [
+            resolutions: [
               {
                 kind: 'nom',
                 address: resolution,
@@ -49,7 +49,7 @@ export class ResolveNom implements NameResolver {
         }
       } catch (error) {
         return {
-          nameResolutions: [],
+          resolutions: [],
           errors: [
             {
               kind: 'nom',
@@ -61,7 +61,7 @@ export class ResolveNom implements NameResolver {
     }
 
     return {
-      nameResolutions: [],
+      resolutions: [],
       errors: [],
     }
   }

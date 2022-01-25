@@ -4,7 +4,7 @@ import { ResolveGroup } from './resolve-group'
 class ResolveSuccess implements NameResolver {
   async resolve(id: string): Promise<NameResolutionResults> {
     return {
-      nameResolutions: [
+      resolutions: [
         {
           kind: 'success',
           address: id,
@@ -18,7 +18,7 @@ class ResolveSuccess implements NameResolver {
 class ResolveError implements NameResolver {
   async resolve(_: string): Promise<NameResolutionResults> {
     return {
-      nameResolutions: [],
+      resolutions: [],
       errors: [
         {
           kind: 'error',
@@ -39,7 +39,7 @@ describe('resolve-group', () => {
       ])
       const resolutions = await resolver.resolve('foo')
 
-      expect(resolutions.nameResolutions.length).toBe(2)
+      expect(resolutions.resolutions.length).toBe(2)
       expect(resolutions.errors.length).toBe(1)
     })
   })
