@@ -1,4 +1,5 @@
 import { ResolveAddress } from './resolve-address'
+import { ResolutionKind } from './types'
 
 describe('resolve-address', () => {
   describe('ResolveAddress', () => {
@@ -17,7 +18,7 @@ describe('resolve-address', () => {
 
       expect(resolutions.resolutions.length).toBe(1)
       expect(resolutions.resolutions[0]).toStrictEqual({
-        kind: 'address',
+        kind: ResolutionKind.ADDRESS,
         address,
       })
       expect(resolutions.errors.length).toBe(0)

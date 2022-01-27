@@ -1,4 +1,4 @@
-import { NameResolver, NameResolutionResults } from './types'
+import { NameResolver, NameResolutionResults, ResolutionKind } from './types'
 import { ResolveGroup } from './resolve-group'
 
 class ResolveSuccess implements NameResolver {
@@ -6,7 +6,7 @@ class ResolveSuccess implements NameResolver {
     return {
       resolutions: [
         {
-          kind: 'success',
+          kind: ResolutionKind.ADDRESS,
           address: id,
         },
       ],
@@ -21,7 +21,7 @@ class ResolveError implements NameResolver {
       resolutions: [],
       errors: [
         {
-          kind: 'error',
+          kind: ResolutionKind.ADDRESS,
           error: new Error('foo'),
         },
       ],

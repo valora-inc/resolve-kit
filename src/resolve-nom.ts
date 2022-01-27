@@ -1,7 +1,7 @@
 import { Address } from '@celo/base/lib/address'
 import { ContractKit } from '@celo/contractkit'
 import { NomKit } from '@nomspace/nomspace'
-import { NameResolver, NameResolutionResults } from './types'
+import { NameResolver, NameResolutionResults, ResolutionKind } from './types'
 
 const NullNomResolution = '0x0000000000000000000000000000000000000000'
 
@@ -40,7 +40,7 @@ export class ResolveNom implements NameResolver {
           return {
             resolutions: [
               {
-                kind: 'nom',
+                kind: ResolutionKind.NOM,
                 address: resolution,
               },
             ],
@@ -52,7 +52,7 @@ export class ResolveNom implements NameResolver {
           resolutions: [],
           errors: [
             {
-              kind: 'nom',
+              kind: ResolutionKind.NOM,
               error: error as Error,
             },
           ],

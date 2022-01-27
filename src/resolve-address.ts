@@ -1,5 +1,5 @@
 import { isValidAddress } from '@celo/utils/lib/address'
-import { NameResolver, NameResolutionResults } from './types'
+import { NameResolver, NameResolutionResults, ResolutionKind } from './types'
 
 export class ResolveAddress implements NameResolver {
   async resolve(id: string): Promise<NameResolutionResults> {
@@ -7,7 +7,7 @@ export class ResolveAddress implements NameResolver {
       return {
         resolutions: [
           {
-            kind: 'address',
+            kind: ResolutionKind.ADDRESS,
             address: id,
           },
         ],
