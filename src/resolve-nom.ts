@@ -32,16 +32,26 @@ export class ResolveNom implements NameResolver {
   }
 
   async resolve(id: string): Promise<NameResolutionResults> {
+    if (!id.endsWith('.nom')) {
+      return {
+        resolutions: [],
+        errors: [],
+      }
+    }
+
+    const name = id.substring(0, id.length - 4)
+
     // Only ids with fewer than 32 bytes are valid noms.
-    if (Buffer.byteLength(id, 'utf8') < 32) {
+    if (Buffer.byteLength(name, 'utf8') < 32) {
       try {
-        const resolution = await this.nomKit.resolve(id)
+        const resolution = await this.nomKit.resolve(name)
         if (resolution !== NullNomResolution) {
           return {
             resolutions: [
               {
                 kind: ResolutionKind.NOM,
                 address: resolution,
+                name,
               },
             ],
             errors: [],
