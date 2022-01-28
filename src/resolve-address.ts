@@ -7,7 +7,7 @@ export class ResolveAddress implements NameResolver {
       return {
         resolutions: [
           {
-            kind: ResolutionKind.ADDRESS,
+            kind: ResolutionKind.Address,
             address: id,
           },
         ],

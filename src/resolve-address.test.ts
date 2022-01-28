@@ -18,7 +18,7 @@ describe('resolve-address', () => {
 
       expect(resolutions.resolutions.length).toBe(1)
       expect(resolutions.resolutions[0]).toStrictEqual({
-        kind: ResolutionKind.ADDRESS,
+        kind: ResolutionKind.Address,
         address,
       })
       expect(resolutions.errors.length).toBe(0)

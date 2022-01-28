@@ -6,7 +6,7 @@ class ResolveSuccess implements NameResolver {
     return {
       resolutions: [
         {
-          kind: ResolutionKind.ADDRESS,
+          kind: ResolutionKind.Address,
           address: id,
         },
       ],
@@ -21,7 +21,7 @@ class ResolveError implements NameResolver {
       resolutions: [],
       errors: [
         {
-          kind: ResolutionKind.ADDRESS,
+          kind: ResolutionKind.Address,
           error: new Error('foo'),
         },
       ],

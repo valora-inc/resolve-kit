@@ -1,8 +1,8 @@
 import { Address } from '@celo/base/lib/address'
 
 export enum ResolutionKind {
-  ADDRESS = 'address',
-  NOM = 'nom',
+  Address = 'address',
+  Nom = 'nom',
 }
 
 export interface NameResolution {

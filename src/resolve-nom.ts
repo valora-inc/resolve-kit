@@ -39,7 +39,7 @@ export class ResolveNom implements NameResolver {
       }
     }
 
-    const name = id.substring(0, id.length - 4)
+    const name = id.substring(0, id.length - '.nom'.length)
 
     // Only ids with fewer than 32 bytes are valid noms.
     if (Buffer.byteLength(name, 'utf8') < 32) {
@@ -49,7 +49,7 @@ export class ResolveNom implements NameResolver {
           return {
             resolutions: [
               {
-                kind: ResolutionKind.NOM,
+                kind: ResolutionKind.Nom,
                 address: resolution,
                 name,
               },
@@ -62,7 +62,7 @@ export class ResolveNom implements NameResolver {
           resolutions: [],
           errors: [
             {
-              kind: ResolutionKind.NOM,
+              kind: ResolutionKind.Nom,
               error: error as Error,
             },
           ],
