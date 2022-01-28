@@ -1,12 +1,19 @@
 import { Address } from '@celo/base/lib/address'
 
+export enum ResolutionKind {
+  Address = 'address',
+  Nom = 'nom',
+}
+
 export interface NameResolution {
-  kind: string
+  kind: ResolutionKind
   address: Address
+  name?: string
+  thumbnailPath?: string
 }
 
 export interface NameResolutionError {
-  kind: string
+  kind: ResolutionKind
   error: Error
 }
 

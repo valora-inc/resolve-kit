@@ -29,13 +29,29 @@ describe('resolve-nom', () => {
     })
 
     it('return resolutions for valid nom', async () => {
+      const mockAddress = '0x1212121212121212121212121212121212121212'
+      const mockNomKit = {
+        resolve: (_: string) => mockAddress,
+      } as unknown as NomKit
+      const resolver = new ResolveNom({ nomKit: mockNomKit })
+      const resolutions = await resolver.resolve('foo.nom')
+
+      expect(resolutions.resolutions.length).toBe(1)
+      expect(resolutions.errors.length).toBe(0)
+
+      const resolution = resolutions.resolutions[0]
+      expect(resolution.address).toBe(mockAddress)
+      expect(resolution.name).toBe('foo')
+    })
+
+    it('does not return resolutions if domain does not end in ".nom"', async () => {
       const mockNomKit = {
         resolve: (_: string) => '0x1212121212121212121212121212121212121212',
       } as unknown as NomKit
       const resolver = new ResolveNom({ nomKit: mockNomKit })
       const resolutions = await resolver.resolve('foo')
 
-      expect(resolutions.resolutions.length).toBe(1)
+      expect(resolutions.resolutions.length).toBe(0)
       expect(resolutions.errors.length).toBe(0)
     })
 
@@ -46,7 +62,7 @@ describe('resolve-nom', () => {
         },
       } as unknown as NomKit
       const resolver = new ResolveNom({ nomKit: mockNomKit })
-      const resolutions = await resolver.resolve('foo')
+      const resolutions = await resolver.resolve('foo.nom')
 
       expect(resolutions.resolutions.length).toBe(0)
       expect(resolutions.errors.length).toBe(1)

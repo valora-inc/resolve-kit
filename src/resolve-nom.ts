@@ -1,7 +1,7 @@
 import { Address } from '@celo/base/lib/address'
 import { ContractKit } from '@celo/contractkit'
 import { NomKit } from '@nomspace/nomspace'
-import { NameResolver, NameResolutionResults } from './types'
+import { NameResolver, NameResolutionResults, ResolutionKind } from './types'
 
 const NullNomResolution = '0x0000000000000000000000000000000000000000'
 
@@ -32,16 +32,26 @@ export class ResolveNom implements NameResolver {
   }
 
   async resolve(id: string): Promise<NameResolutionResults> {
+    if (!id.endsWith('.nom')) {
+      return {
+        resolutions: [],
+        errors: [],
+      }
+    }
+
+    const name = id.substring(0, id.length - '.nom'.length)
+
     // Only ids with fewer than 32 bytes are valid noms.
-    if (Buffer.byteLength(id, 'utf8') < 32) {
+    if (Buffer.byteLength(name, 'utf8') < 32) {
       try {
-        const resolution = await this.nomKit.resolve(id)
+        const resolution = await this.nomKit.resolve(name)
         if (resolution !== NullNomResolution) {
           return {
             resolutions: [
               {
-                kind: 'nom',
+                kind: ResolutionKind.Nom,
                 address: resolution,
+                name,
               },
             ],
             errors: [],
@@ -52,7 +62,7 @@ export class ResolveNom implements NameResolver {
           resolutions: [],
           errors: [
             {
-              kind: 'nom',
+              kind: ResolutionKind.Nom,
               error: error as Error,
             },
           ],
