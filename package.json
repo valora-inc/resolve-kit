@@ -41,7 +41,7 @@
     "@celo/base": "^1.5.1",
     "@celo/utils": "^1.5.1",
     "@nomspace/nomspace": "^1.0.6",
-    "ethers": "^5.5.3"
+    "ethers": "^5.5.4"
   },
   "files": [
     "dist"
