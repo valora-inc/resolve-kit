@@ -10,7 +10,7 @@ async function main(args: any) {
     new ResolveAddress(),
     new ResolveNom({
       providerUrl,
-      ensRegistryAddress: ResolveNom.ENSRegsitryAddress,
+      ensRegistryAddress: ResolveNom.MainnetENSRegsitryAddress,
     }),
   ])
   const resolutions = await resolver.resolve(args.id)

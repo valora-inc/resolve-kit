@@ -8,7 +8,9 @@ import { providers } from 'ethers'
 const NullNomResolution = '0x0000000000000000000000000000000000000000'
 
 export class ResolveNom implements NameResolver {
-  static readonly ENSRegsitryAddress: Address =
+  static readonly AlfajoresENSRegsitryAddress: Address =
+    '0x40cd4db228e9c172dA64513D0e874d009486A9a9'
+  static readonly MainnetENSRegsitryAddress: Address =
     '0x3DE51c3960400A0F752d3492652Ae4A0b2A36FB3'
 
   private ens: any
