@@ -1,31 +1,32 @@
 import { Address } from '@celo/base/lib/address'
-import { ContractKit } from '@celo/contractkit'
-import { NomKit } from '@nomspace/nomspace'
 import { NameResolver, NameResolutionResults, ResolutionKind } from './types'
+
+import ENS from '@ensdomains/ensjs'
+import { normalize } from 'eth-ens-namehash'
+import { providers } from 'ethers'
 
 const NullNomResolution = '0x0000000000000000000000000000000000000000'
 
 export class ResolveNom implements NameResolver {
-  static readonly MainnetContractAddress: Address =
-    '0xABf8faBbC071F320F222A526A2e1fBE26429344d'
-  static readonly AlfajoresContractAddress: Address =
-    '0x36C976Da6A6499Cad683064F849afa69CD4dec2e'
+  static readonly ENSRegsitryAddress: Address =
+    '0x3DE51c3960400A0F752d3492652Ae4A0b2A36FB3'
 
-  private nomKit: NomKit
+  private ens: any
 
   constructor({
-    kit,
-    contractAddress,
-    nomKit,
+    providerUrl,
+    ensRegistryAddress,
+    ens,
   }: {
-    kit?: ContractKit
-    contractAddress?: Address
-    nomKit?: NomKit
+    providerUrl?: string
+    ensRegistryAddress?: Address
+    ens?: any
   }) {
-    if (nomKit) {
-      this.nomKit = nomKit
-    } else if (kit && contractAddress) {
-      this.nomKit = new NomKit(kit, contractAddress)
+    if (ens) {
+      this.ens = ens
+    } else if (providerUrl && ensRegistryAddress) {
+      const provider = new providers.JsonRpcProvider(providerUrl)
+      this.ens = new ENS({ provider, ensAddress: ensRegistryAddress })
     } else {
       throw new Error('Missing kit and contractAddress')
     }
@@ -38,35 +39,36 @@ export class ResolveNom implements NameResolver {
         errors: [],
       }
     }
-
     const name = id.substring(0, id.length - '.nom'.length)
 
-    // Only ids with fewer than 32 bytes are valid noms.
-    if (Buffer.byteLength(name, 'utf8') < 32) {
-      try {
-        const resolution = await this.nomKit.resolve(name)
-        if (resolution !== NullNomResolution) {
-          return {
-            resolutions: [
-              {
-                kind: ResolutionKind.Nom,
-                address: resolution,
-                name,
-              },
-            ],
-            errors: [],
-          }
-        }
-      } catch (error) {
+    //
+    // https://docs.nom.space/dapp-developers/integrating-.nom-into-your-dapp
+    //
+    const normalName = normalize(name)
+    const ensName = this.ens.name(`${normalName}.nom`)
+    try {
+      const address = await ensName.getAddress()
+      if (address !== NullNomResolution) {
         return {
-          resolutions: [],
-          errors: [
+          resolutions: [
             {
               kind: ResolutionKind.Nom,
-              error: error as Error,
+              address,
+              name,
             },
           ],
+          errors: [],
         }
+      }
+    } catch (error) {
+      return {
+        resolutions: [],
+        errors: [
+          {
+            kind: ResolutionKind.Nom,
+            error: error as Error,
+          },
+        ],
       }
     }
 

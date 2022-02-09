@@ -10,7 +10,7 @@
     "test": "jest && prettier --check \"./**/*.ts\" && eslint --ext=.tsx,.ts,.json src/ scripts/",
     "prepublishOnly": "yarn build",
     "release": "standard-version",
-    "resolve": "ts-node scripts/resolve.ts"
+    "resolve": "ts-node --files=src/global.d.ts scripts/resolve.ts"
   },
   "repository": "git@github.com:valora-inc/resolve-kit.git",
   "author": "Valora Inc",
@@ -40,7 +40,8 @@
   "dependencies": {
     "@celo/base": "^1.5.2",
     "@celo/utils": "^1.5.1",
-    "@nomspace/nomspace": "^1.0.6",
+    "@ensdomains/ensjs": "^2.0.1",
+    "eth-ens-namehash": "^2.0.8",
     "ethers": "^5.5.4"
   },
   "files": [

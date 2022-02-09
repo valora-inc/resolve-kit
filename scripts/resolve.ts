@@ -1,15 +1,17 @@
 /* eslint no-console: "off" */
-import { newKit } from '@celo/contractkit'
 import yargs from 'yargs'
 
 import { ResolveGroup, ResolveAddress, ResolveNom } from '../src'
 
 async function main(args: any) {
-  const kit = newKit('https://forno.celo.org')
+  const providerUrl = 'https://forno.celo.org'
 
   const resolver = new ResolveGroup([
     new ResolveAddress(),
-    new ResolveNom({ kit, contractAddress: ResolveNom.MainnetContractAddress }),
+    new ResolveNom({
+      providerUrl,
+      ensRegistryAddress: ResolveNom.ENSRegsitryAddress,
+    }),
   ])
   const resolutions = await resolver.resolve(args.id)
 
