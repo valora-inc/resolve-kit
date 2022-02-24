@@ -7,7 +7,7 @@
     "build": "tsc",
     "lint": "eslint --ext=.tsx,.ts,.json --fix src/ scripts/",
     "format": "prettier --loglevel error --write \"./**/*.ts\"",
-    "test": "jest && prettier --check \"./**/*.ts\" && eslint --ext=.tsx,.ts,.json src/ scripts/",
+    "test": "jest --coverage && prettier --check \"./**/*.ts\" && eslint --ext=.tsx,.ts,.json src/ scripts/",
     "prepublishOnly": "yarn build",
     "release": "standard-version",
     "resolve": "ts-node --files=src/global.d.ts scripts/resolve.ts"
