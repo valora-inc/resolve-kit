@@ -17,7 +17,7 @@
   "license": "Apache-2.0",
   "prettier": "@valora/prettier-config",
   "devDependencies": {
-    "@celo/contractkit": "^1.5.1",
+    "@celo/contractkit": "^2.1.0",
     "@types/jest": "^27.4.0",
     "@types/node": "^17.0.10",
     "@typescript-eslint/eslint-plugin": "^5.29.0",
