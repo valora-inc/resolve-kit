@@ -298,6 +298,11 @@
   resolved "https://registry.yarnpkg.com/@celo/base/-/base-1.5.1.tgz#53e16cd36c51f9eaeec0321f6752de6385f2a131"
   integrity sha512-76MAosahwCDjkBsqfgnKT2CbyjV6TdzIztHJvAuJ+VrKeaIFe/IMoPwIxPy95xDJmHhD0zqPWMixGeyVGAwYQw==
 
+"@celo/base@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@celo/base/-/base-3.0.1.tgz#9ffaed3732a63fee26c636c11258288a7bc8700c"
+  integrity sha512-677Zkp65h2l2cmRkXiIdBS4/RUZlb4pr1n81xwD4egRIUld7on7k51yYIF9LLHkdtFGEJ6aKahJAP3TPvvM7pQ==
+
 "@celo/base@^1.5.2":
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/@celo/base/-/base-1.5.2.tgz#168ab5e4e30b374079d8d139fafc52ca6bfd4100"
@@ -333,7 +338,7 @@
     semver "^7.3.5"
     web3 "1.3.6"
 
-"@celo/utils@1.5.1", "@celo/utils@^1.5.1":
+"@celo/utils@1.5.1":
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/@celo/utils/-/utils-1.5.1.tgz#cd5b0309750a25683d9b07c14e643aee2c6a3670"
   integrity sha512-3ZqZ/YSvzcESd72+8oNOvIM5HieJt3zusRCBPIl97qnqlnCIIq22gxcvpKL1afac0q79t24jkbdl5wsAkD/ROA==
@@ -363,6 +368,23 @@
     keccak256 "^1.0.0"
     lodash "^4.17.21"
     numeral "^2.0.6"
+    web3-eth-abi "1.3.6"
+    web3-utils "1.3.6"
+
+"@celo/utils@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@celo/utils/-/utils-3.0.1.tgz#2c9b03712c020414b31db9b39e57671009ff0976"
+  integrity sha512-mwCG6zuUKLBBmQfcjteHWKlKMkgxHuSugxFA8IkTEb4izfwRyue3/IhYZ/DxTIh906Xgb3CGTdEfxAfrjy8fhg==
+  dependencies:
+    "@celo/base" "3.0.1"
+    "@types/bn.js" "^5.1.0"
+    "@types/elliptic" "^6.4.9"
+    "@types/ethereumjs-util" "^5.2.0"
+    "@types/node" "^10.12.18"
+    bignumber.js "^9.0.0"
+    elliptic "^6.5.4"
+    ethereumjs-util "^5.2.0"
+    io-ts "2.0.1"
     web3-eth-abi "1.3.6"
     web3-utils "1.3.6"
 
