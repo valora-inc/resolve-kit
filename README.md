@@ -17,7 +17,10 @@ const providerUrl = 'https://forno.celo.org'
 
 const resolver = new ResolveGroup([
   new ResolveAddress(),
-  new ResolveNom({ providerUrl, ensRegistryAddress: ResolveNom.MainnetENSRegsitryAddress }),
+  new ResolveNom({
+    providerUrl,
+    ensRegistryAddress: ResolveNom.MainnetENSRegsitryAddress,
+  }),
 ])
 
 // Likely resolve 'foo' to a nom with a resolution address
@@ -26,7 +29,9 @@ console.log('foo resolutions:', foo.resolutions)
 console.log('foo errors:', foo.errors)
 
 // Resolves 0x1212121212121212121212121212121212121212 to an address
-const address = await resolver.resolve('0x1212121212121212121212121212121212121212')
+const address = await resolver.resolve(
+  '0x1212121212121212121212121212121212121212',
+)
 console.log('address resolutions:', address.resolutions)
 console.log('address errors:', address.errors)
 ```
