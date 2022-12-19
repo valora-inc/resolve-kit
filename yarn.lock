@@ -1423,7 +1423,7 @@
     semver "^7.3.7"
     tsutils "^3.21.0"
 
-"@typescript-eslint/utils@5.46.1":
+"@typescript-eslint/utils@5.46.1", "@typescript-eslint/utils@^5.10.0":
   version "5.46.1"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/utils/-/utils-5.46.1.tgz#7da3c934d9fd0eb4002a6bb3429f33298b469b4a"
   integrity sha512-RBdBAGv3oEpFojaCYT4Ghn4775pdjvwfDOfQ2P6qzNVgQOVrnSPe5/Pb88kv7xzYQjoio0eKHKB9GJ16ieSxvA==
@@ -1453,10 +1453,10 @@
     "@typescript-eslint/types" "5.46.1"
     eslint-visitor-keys "^3.3.0"
 
-"@valora/eslint-config-typescript@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@valora/eslint-config-typescript/-/eslint-config-typescript-0.0.1.tgz#467458e748185f665267da09e627fd50627be760"
-  integrity sha512-htzTwQNlgcyeat8t/Mq4F9DFBSeCKPzwRJ6NrDhKxDmd8dV7rggJXjBlCBqhovoVtxtKUn/zX1KKP1Fkh6vhwg==
+"@valora/eslint-config-typescript@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@valora/eslint-config-typescript/-/eslint-config-typescript-1.0.1.tgz#99524730423f1cd125a94ee50539e3aa3d4b9e7c"
+  integrity sha512-8sF+XoEB/tQXpy5M94Je+R+aL1DGFyGHD/Fn1hz4ZbGvG4gaQnrWa9fsAeQbSqF/Rn93RZKJeEgLQysuIU1wxg==
   dependencies:
     "@typescript-eslint/parser" "^4.25.0"
 
@@ -2986,6 +2986,13 @@ eslint-plugin-import@^2.26.0:
     object.values "^1.1.5"
     resolve "^1.22.0"
     tsconfig-paths "^3.14.1"
+
+eslint-plugin-jest@^27.1.7:
+  version "27.1.7"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-27.1.7.tgz#0351e904afb8d66b7f70452929556dfdc8daba0d"
+  integrity sha512-0QVzf+og4YI1Qr3UoprkqqhezAZjFffdi62b0IurkCXMqPtRW84/UT4CKsYT80h/D82LA9avjO/80Ou1LdgbaQ==
+  dependencies:
+    "@typescript-eslint/utils" "^5.10.0"
 
 eslint-plugin-json@^3.1.0:
   version "3.1.0"
