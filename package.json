@@ -17,7 +17,7 @@
   "license": "Apache-2.0",
   "prettier": "@valora/prettier-config",
   "devDependencies": {
-    "@celo/contractkit": "^3.0.1",
+    "@celo/contractkit": "^3.1.0",
     "@types/jest": "^29.2.5",
     "@types/node": "^17.0.10",
     "@typescript-eslint/eslint-plugin": "^5.48.1",
@@ -39,8 +39,8 @@
     "yargs": "^17.6.2"
   },
   "dependencies": {
-    "@celo/base": "^3.0.1",
-    "@celo/utils": "^3.0.1",
+    "@celo/base": "^3.1.0",
+    "@celo/utils": "^3.1.0",
     "@ensdomains/ensjs": "^2.1.0",
     "eth-ens-namehash": "^2.0.8",
     "ethers": "^5.7.2"
