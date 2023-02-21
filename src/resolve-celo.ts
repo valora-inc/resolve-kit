@@ -14,6 +14,7 @@ export class ResolveCelo implements NameResolver {
   private authSigner: AuthSigner
   private account: Address
   private serviceContext: ServiceContext
+  private networkTimeout: number
 
   static readonly FederatedAttestationsContractAbi: AbiItem[] =
     require('./abis/FederatedAttestations.json').abi
@@ -39,9 +40,11 @@ export class ResolveCelo implements NameResolver {
     serviceContext: ServiceContext
     networkTimeout?: number
   }) {
-    networkTimeout = networkTimeout ?? DEFAULT_NETWORK_TIMEOUT
+    this.networkTimeout = networkTimeout ?? DEFAULT_NETWORK_TIMEOUT
     const web3 = new Web3(
-      new Web3.providers.HttpProvider(providerUrl, { timeout: networkTimeout }),
+      new Web3.providers.HttpProvider(providerUrl, {
+        timeout: this.networkTimeout,
+      }),
     )
     const federatedAttestationsContract = new web3.eth.Contract(
       ResolveCelo.FederatedAttestationsContractAbi,
@@ -55,8 +58,10 @@ export class ResolveCelo implements NameResolver {
   }
 
   async resolve(id: string): Promise<NameResolutionResults> {
+    let timer: ReturnType<typeof setTimeout> | null = null
     try {
-      // TODO(sbw): need a timeout
+      const abortController = new AbortController()
+      timer = setTimeout(() => abortController.abort(), this.networkTimeout)
       const identifier = (
         await OdisUtils.Identifier.getObfuscatedIdentifier(
           id,
@@ -64,8 +69,16 @@ export class ResolveCelo implements NameResolver {
           this.account,
           this.authSigner,
           this.serviceContext,
+          undefined, // blindingFactor
+          undefined, // clientVersion
+          undefined, // blsBlindingClient
+          undefined, // sessionID
+          undefined, // keyVersion
+          undefined, // endpoint
+          abortController,
         )
       ).obfuscatedIdentifier
+      clearTimeout(timer)
 
       const attestations = await this.federatedAttestationsContract.methods
         .lookupAttestations(identifier, [this.account])
@@ -79,6 +92,9 @@ export class ResolveCelo implements NameResolver {
         errors: [],
       }
     } catch (error) {
+      if (timer) {
+        clearTimeout(timer)
+      }
       return {
         resolutions: [],
         errors: [{ kind: ResolutionKind.Celo, error: error as Error }],
