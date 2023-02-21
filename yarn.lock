@@ -304,7 +304,7 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@celo/base@3.2.0", "@celo/base@^3.0.1", "@celo/base@^3.1.0":
+"@celo/base@3.2.0", "@celo/base@^3.1.0", "@celo/base@^3.2.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@celo/base/-/base-3.2.0.tgz#19dcff6a822abb1f6b57af8f9db35a4c673aee62"
   integrity sha512-9wfZYiYv7dzt17a29fxU6sV7JssyXfpSQ9kPSpfOlsewPICXwfOMQ+25Jn6xZu20Vx9rmKebmLHiQyiuYEDOcQ==
@@ -393,29 +393,12 @@
     google-libphonenumber "^3.2.27"
     io-ts "2.0.1"
 
-"@celo/utils@3.2.0", "@celo/utils@^3.1.0":
+"@celo/utils@3.2.0", "@celo/utils@^3.1.0", "@celo/utils@^3.2.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@celo/utils/-/utils-3.2.0.tgz#1dc39f619d24c3974d306cad23db7cdf3f9d487e"
   integrity sha512-Om1mTzwsdV6FVPvraafcJeRnzz7Xv/lyGmyZaoEZ9fErRadu9ZrOsuDQniYe+lD78DQ0NATxJL04WjhEKVkn+A==
   dependencies:
     "@celo/base" "3.2.0"
-    "@types/bn.js" "^5.1.0"
-    "@types/elliptic" "^6.4.9"
-    "@types/ethereumjs-util" "^5.2.0"
-    "@types/node" "^10.12.18"
-    bignumber.js "^9.0.0"
-    elliptic "^6.5.4"
-    ethereumjs-util "^5.2.0"
-    io-ts "2.0.1"
-    web3-eth-abi "1.3.6"
-    web3-utils "1.3.6"
-
-"@celo/utils@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@celo/utils/-/utils-3.0.1.tgz#2c9b03712c020414b31db9b39e57671009ff0976"
-  integrity sha512-mwCG6zuUKLBBmQfcjteHWKlKMkgxHuSugxFA8IkTEb4izfwRyue3/IhYZ/DxTIh906Xgb3CGTdEfxAfrjy8fhg==
-  dependencies:
-    "@celo/base" "3.0.1"
     "@types/bn.js" "^5.1.0"
     "@types/elliptic" "^6.4.9"
     "@types/ethereumjs-util" "^5.2.0"
