@@ -19,7 +19,7 @@ export class ResolveCelo implements NameResolver {
   static readonly FederatedAttestationsContractAbi: AbiItem[] =
     require('./abis/FederatedAttestations.json').abi
 
-  // https://github.com/celo-org/identity/blob/ASv2/asv2/protocol.md#smart-contract-addresses
+  // https://github.com/celo-org/SocialConnect/blob/main/protocol.md#smart-contract-addresses
   static readonly AlfajoresFederatedAttestationsProxyContractAddress: Address =
     '0x70F9314aF173c246669cFb0EEe79F9Cfd9C34ee3'
   static readonly MainnetFederatedAttestationsProxyContractAddress: Address =
