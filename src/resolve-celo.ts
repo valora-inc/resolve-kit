@@ -11,6 +11,7 @@ const DEFAULT_NETWORK_TIMEOUT = 5_000
 
 export class ResolveCelo implements NameResolver {
   private federatedAttestationsContract: Contract
+  private trustedIssuers: Address[]
   private authSigner: AuthSigner
   private account: Address
   private serviceContext: ServiceContext
@@ -25,9 +26,18 @@ export class ResolveCelo implements NameResolver {
   static readonly MainnetFederatedAttestationsProxyContractAddress: Address =
     '0x0aD5b1d0C25ecF6266Dd951403723B2687d6aff2'
 
+  static readonly AlfajoresDefaultTrustedIssuers: Address[] = [
+    '0xe3475047EF9F9231CD6fAe02B3cBc5148E8eB2c8', // Libera
+  ]
+  static readonly MainnetDefaultTrustedIssuers: Address[] = [
+    '0x6549aF2688e07907C1b821cA44d6d65872737f05', // Kaala
+    '0x388612590F8cC6577F19c9b61811475Aa432CB44', // Libera
+  ]
+
   constructor({
     providerUrl,
     federatedAttestationsProxyContractAddress,
+    trustedIssuers,
     authSigner,
     account,
     serviceContext,
@@ -35,6 +45,7 @@ export class ResolveCelo implements NameResolver {
   }: {
     providerUrl: string
     federatedAttestationsProxyContractAddress: Address
+    trustedIssuers: Address[]
     authSigner: AuthSigner
     account: Address
     serviceContext: ServiceContext
@@ -52,6 +63,7 @@ export class ResolveCelo implements NameResolver {
     )
 
     this.federatedAttestationsContract = federatedAttestationsContract
+    this.trustedIssuers = trustedIssuers
     this.authSigner = authSigner
     this.account = account
     this.serviceContext = serviceContext
@@ -81,7 +93,7 @@ export class ResolveCelo implements NameResolver {
       clearTimeout(timer)
 
       const attestations = await this.federatedAttestationsContract.methods
-        .lookupAttestations(identifier, [this.account])
+        .lookupAttestations(identifier, [this.account, ...this.trustedIssuers])
         .call()
 
       return {

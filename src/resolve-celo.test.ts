@@ -46,6 +46,7 @@ describe('resolve-celo', () => {
       const resolver = new ResolveCelo({
         providerUrl: 'http://does.not.matter',
         federatedAttestationsProxyContractAddress: '0x1',
+        trustedIssuers: [],
         authSigner,
         account: '0x3',
         serviceContext,
@@ -92,6 +93,7 @@ describe('resolve-celo', () => {
       const resolver = new ResolveCelo({
         providerUrl: 'http://does.not.matter',
         federatedAttestationsProxyContractAddress: '0x1',
+        trustedIssuers: [],
         authSigner,
         account: '0x3',
         serviceContext,
@@ -128,6 +130,7 @@ describe('resolve-celo', () => {
       const resolver = new ResolveCelo({
         providerUrl: 'http://does.not.matter',
         federatedAttestationsProxyContractAddress: '0x1',
+        trustedIssuers: [],
         authSigner,
         account: '0x3',
         serviceContext,
