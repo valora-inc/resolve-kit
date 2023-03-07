@@ -31,6 +31,7 @@ export class ResolveCelo implements NameResolver {
   ]
   static readonly MainnetDefaultTrustedIssuers: Address[] = [
     '0x6549aF2688e07907C1b821cA44d6d65872737f05', // Kaala
+    '0xff7f2af3f451318aFb0819fDeE8f1d6306C0fbEe', // Node Finance
     '0x388612590F8cC6577F19c9b61811475Aa432CB44', // Libera
   ]
 
