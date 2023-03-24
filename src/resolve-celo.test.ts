@@ -22,7 +22,8 @@ describe('resolve-celo', () => {
                 lookupAttestations: () => {
                   return {
                     call: () => ({
-                      accounts: ['0xf00ba7'],
+                      countsPerIssuer: ['1', '1'],
+                      accounts: ['0xf00ba7', '0xdeadf00d'],
                     }),
                   }
                 },
@@ -46,17 +47,24 @@ describe('resolve-celo', () => {
       const resolver = new ResolveCelo({
         providerUrl: 'http://does.not.matter',
         federatedAttestationsProxyContractAddress: '0x1',
-        trustedIssuers: [],
+        trustedIssuers: {
+          '0x1': 'unit-test-1',
+          '0x2': 'unit-test-2',
+        },
         authSigner,
         account: '0x3',
         serviceContext,
       })
 
       const resolutions = await resolver.resolve('+18888888888')
-      expect(resolutions.resolutions.length).toBe(1)
+      expect(resolutions.resolutions.length).toBe(2)
       expect(resolutions.errors.length).toBe(0)
-      const resolution = resolutions.resolutions[0]
-      expect(resolution.address).toBe('0xf00ba7')
+      expect(resolutions.resolutions).toEqual(
+        expect.arrayContaining([
+          { address: '0xf00ba7', issuerName: 'unit-test-1', kind: 'celo' },
+          { address: '0xdeadf00d', issuerName: 'unit-test-2', kind: 'celo' },
+        ]),
+      )
     })
 
     it('returns errors on contract call error', async () => {
@@ -93,7 +101,7 @@ describe('resolve-celo', () => {
       const resolver = new ResolveCelo({
         providerUrl: 'http://does.not.matter',
         federatedAttestationsProxyContractAddress: '0x1',
-        trustedIssuers: [],
+        trustedIssuers: { '0x2': 'unit-test' },
         authSigner,
         account: '0x3',
         serviceContext,
@@ -130,7 +138,7 @@ describe('resolve-celo', () => {
       const resolver = new ResolveCelo({
         providerUrl: 'http://does.not.matter',
         federatedAttestationsProxyContractAddress: '0x1',
-        trustedIssuers: [],
+        trustedIssuers: { '0x2': 'unit-test' },
         authSigner,
         account: '0x3',
         serviceContext,

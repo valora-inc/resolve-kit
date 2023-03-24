@@ -7,9 +7,17 @@ export enum ResolutionKind {
 }
 
 export interface NameResolution {
+  // Method of resolution
   kind: ResolutionKind
+  // Address of resolution
   address: Address
+  // Name of entity that created the resolution. For example, 'Kaala' might
+  // create a resolution on SocialConnect.
+  issuerName?: string
+  // The resolve method might perform some normalization on the ID passed in.
+  // This is the result of that normalization.
   name?: string
+  // TODO: remove?
   thumbnailPath?: string
 }
 

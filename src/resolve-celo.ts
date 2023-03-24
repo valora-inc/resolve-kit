@@ -11,7 +11,7 @@ const DEFAULT_NETWORK_TIMEOUT = 5_000
 
 export class ResolveCelo implements NameResolver {
   private federatedAttestationsContract: Contract
-  private trustedIssuers: Address[]
+  private trustedIssuers: Record<Address, string>
   private authSigner: AuthSigner
   private account: Address
   private serviceContext: ServiceContext
@@ -26,14 +26,14 @@ export class ResolveCelo implements NameResolver {
   static readonly MainnetFederatedAttestationsProxyContractAddress: Address =
     '0x0aD5b1d0C25ecF6266Dd951403723B2687d6aff2'
 
-  static readonly AlfajoresDefaultTrustedIssuers: Address[] = [
-    '0xe3475047EF9F9231CD6fAe02B3cBc5148E8eB2c8', // Libera
-  ]
-  static readonly MainnetDefaultTrustedIssuers: Address[] = [
-    '0x6549aF2688e07907C1b821cA44d6d65872737f05', // Kaala
-    '0xff7f2af3f451318aFb0819fDeE8f1d6306C0fbEe', // Node Finance
-    '0x388612590F8cC6577F19c9b61811475Aa432CB44', // Libera
-  ]
+  static readonly AlfajoresDefaultTrustedIssuers: Record<Address, string> = {
+    '0xe3475047EF9F9231CD6fAe02B3cBc5148E8eB2c8': 'Libera',
+  }
+  static readonly MainnetDefaultTrustedIssuers: Record<Address, string> = {
+    '0x6549aF2688e07907C1b821cA44d6d65872737f05': 'Kaala',
+    '0xff7f2af3f451318aFb0819fDeE8f1d6306C0fbEe': 'Node Finance',
+    '0x388612590F8cC6577F19c9b61811475Aa432CB44': 'Libera',
+  }
 
   constructor({
     providerUrl,
@@ -46,7 +46,7 @@ export class ResolveCelo implements NameResolver {
   }: {
     providerUrl: string
     federatedAttestationsProxyContractAddress: Address
-    trustedIssuers: Address[]
+    trustedIssuers: Record<string, Address>
     authSigner: AuthSigner
     account: Address
     serviceContext: ServiceContext
@@ -93,15 +93,59 @@ export class ResolveCelo implements NameResolver {
       ).obfuscatedIdentifier
       clearTimeout(timer)
 
+      const issuers = Object.keys(this.trustedIssuers)
       const attestations = await this.federatedAttestationsContract.methods
-        .lookupAttestations(identifier, [this.account, ...this.trustedIssuers])
+        .lookupAttestations(identifier, issuers)
         .call()
 
+      let totalCount = 0
+      const issuerAddresses: { issuerName: string; address: Address }[] = []
+
+      // .lookupAttestations returns an object with .accounts and .countsPerIssuer.
+      // .countsPerIssuer specifies for each issuer, how many addresses it resolved.
+      //
+      // E.g., .lookupAttestations(..., ['0x1', '0x2']) ->
+      //   { accounts: ['0xf00', '0xd00'], countsPerIssuer: ['1', '1']}
+      //   0x1 issuer returns 0xf00 and 0x2 issuer returns 0xd00.
+      //
+      // We map issuer names to addresses that issuer resolved in the loop below.
+      for (
+        let index = 0;
+        index < attestations.countsPerIssuer.length;
+        index++
+      ) {
+        const issuer = issuers[index]
+        const count = parseInt(attestations.countsPerIssuer[index], 10)
+        if (Number.isNaN(count)) {
+          throw new Error(
+            `Issuer count parses to NaN: ${attestations.countsPerIssuer[index]}`,
+          )
+        }
+        const addresses = attestations.accounts.slice(
+          totalCount,
+          totalCount + count,
+        )
+        const issuerName = this.trustedIssuers[issuer]
+        issuerAddresses.push(
+          ...addresses.map((address: Address) => ({ issuerName, address })),
+        )
+        totalCount += count
+      }
+
       return {
-        resolutions: attestations.accounts.map((address: Address) => ({
-          kind: ResolutionKind.Celo,
-          address,
-        })),
+        resolutions: issuerAddresses.map(
+          ({
+            issuerName,
+            address,
+          }: {
+            issuerName: string
+            address: Address
+          }) => ({
+            kind: ResolutionKind.Celo,
+            issuerName,
+            address,
+          }),
+        ),
         errors: [],
       }
     } catch (error) {
