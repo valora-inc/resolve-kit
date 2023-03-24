@@ -9,7 +9,7 @@ import { NameResolver, NameResolutionResults, ResolutionKind } from './types'
 
 const DEFAULT_NETWORK_TIMEOUT = 5_000
 
-export class ResolveCelo implements NameResolver {
+export class ResolveSocialConnect implements NameResolver {
   private federatedAttestationsContract: Contract
   private trustedIssuers: Record<Address, string>
   private authSigner: AuthSigner
@@ -59,7 +59,7 @@ export class ResolveCelo implements NameResolver {
       }),
     )
     const federatedAttestationsContract = new web3.eth.Contract(
-      ResolveCelo.FederatedAttestationsContractAbi,
+      ResolveSocialConnect.FederatedAttestationsContractAbi,
       federatedAttestationsProxyContractAddress,
     )
 
@@ -141,7 +141,7 @@ export class ResolveCelo implements NameResolver {
             issuerName: string
             address: Address
           }) => ({
-            kind: ResolutionKind.Celo,
+            kind: ResolutionKind.SocialConnect,
             issuerName,
             address,
           }),
@@ -154,7 +154,7 @@ export class ResolveCelo implements NameResolver {
       }
       return {
         resolutions: [],
-        errors: [{ kind: ResolutionKind.Celo, error: error as Error }],
+        errors: [{ kind: ResolutionKind.SocialConnect, error: error as Error }],
       }
     }
   }
