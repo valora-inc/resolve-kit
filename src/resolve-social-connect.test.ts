@@ -64,12 +64,12 @@ describe('resolve-social-connect', () => {
           {
             address: '0xf00ba7',
             issuerName: 'unit-test-1',
-            kind: 'socialconnect',
+            kind: 'social-connect',
           },
           {
             address: '0xdeadf00d',
             issuerName: 'unit-test-2',
-            kind: 'socialconnect',
+            kind: 'social-connect',
           },
         ]),
       )
