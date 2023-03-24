@@ -6,6 +6,7 @@ import { OdisUtils } from '@celo/identity'
 import { AuthSigner, ServiceContext } from '@celo/identity/lib/odis/query'
 
 import { NameResolver, NameResolutionResults, ResolutionKind } from './types'
+import * as FederatedAttestations from './abis/FederatedAttestations.json'
 
 const DEFAULT_NETWORK_TIMEOUT = 5_000
 
@@ -18,7 +19,7 @@ export class ResolveSocialConnect implements NameResolver {
   private networkTimeout: number
 
   static readonly FederatedAttestationsContractAbi: AbiItem[] =
-    require('./abis/FederatedAttestations.json').abi
+    FederatedAttestations.abi as AbiItem[]
 
   // https://github.com/celo-org/SocialConnect/blob/main/protocol.md#smart-contract-addresses
   static readonly AlfajoresFederatedAttestationsProxyContractAddress: Address =
