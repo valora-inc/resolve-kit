@@ -3,7 +3,7 @@ import { Address } from '@celo/base/lib/address'
 export enum ResolutionKind {
   Address = 'address',
   Nom = 'nom',
-  SocialConnect = 'socialconnect',
+  SocialConnect = 'social-connect',
 }
 
 export interface NameResolution {
