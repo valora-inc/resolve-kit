@@ -2,7 +2,7 @@
 import yargs from 'yargs'
 
 import { ResolveGroup, ResolveAddress, ResolveNom } from '../src'
-import { ResolveCelo } from '../src'
+import { ResolveSocialConnect } from '../src'
 
 import { OdisUtils } from '@celo/identity'
 import { OdisContextName } from '@celo/identity/lib/odis/query'
@@ -14,16 +14,16 @@ const NETWORKS: Record<string, any> = {
     providerUrl: 'https://alfajores-forno.celo-testnet.org',
     ensRegistryAddress: ResolveNom.AlfajoresENSRegsitryAddress,
     federatedAttestationsProxyContractAddress:
-      ResolveCelo.AlfajoresFederatedAttestationsProxyContractAddress,
-    trustedIssuers: ResolveCelo.AlfajoresDefaultTrustedIssuers,
+      ResolveSocialConnect.AlfajoresFederatedAttestationsProxyContractAddress,
+    trustedIssuers: ResolveSocialConnect.AlfajoresDefaultTrustedIssuers,
     odisContextName: OdisContextName.ALFAJORES,
   },
   mainnet: {
     providerUrl: 'https://forno.celo.org',
     ensRegistryAddress: ResolveNom.MainnetENSRegsitryAddress,
     federatedAttestationsProxyContractAddress:
-      ResolveCelo.MainnetFederatedAttestationsProxyContractAddress,
-    trustedIssuers: ResolveCelo.MainnetDefaultTrustedIssuers,
+      ResolveSocialConnect.MainnetFederatedAttestationsProxyContractAddress,
+    trustedIssuers: ResolveSocialConnect.MainnetDefaultTrustedIssuers,
     odisContextName: OdisContextName.MAINNET,
   },
 }
@@ -46,7 +46,7 @@ async function main(args: ReturnType<typeof parseArgs>) {
     kit.addAccount(privateKey)
     const account =
       kit.web3.eth.accounts.privateKeyToAccount(privateKey).address
-    const resolveCelo = new ResolveCelo({
+    const resolveCelo = new ResolveSocialConnect({
       providerUrl,
       federatedAttestationsProxyContractAddress:
         network.federatedAttestationsProxyContractAddress,

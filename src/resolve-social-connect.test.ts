@@ -1,4 +1,4 @@
-import { ResolveCelo } from './resolve-celo'
+import { ResolveSocialConnect } from './resolve-social-connect'
 import { AuthSigner, ServiceContext } from '@celo/identity/lib/odis/query'
 import Web3 from 'web3'
 import * as Identity from '@celo/identity'
@@ -6,8 +6,8 @@ import * as Identity from '@celo/identity'
 jest.mock('web3')
 jest.mock('@celo/identity')
 
-describe('resolve-celo', () => {
-  describe('ResolveCelo', () => {
+describe('resolve-social-connect', () => {
+  describe('ResolveSocialConnect', () => {
     beforeEach(() => {
       jest.resetAllMocks()
     })
@@ -44,7 +44,7 @@ describe('resolve-celo', () => {
       const authSigner = {} as any as AuthSigner
       const serviceContext = {} as any as ServiceContext
 
-      const resolver = new ResolveCelo({
+      const resolver = new ResolveSocialConnect({
         providerUrl: 'http://does.not.matter',
         federatedAttestationsProxyContractAddress: '0x1',
         trustedIssuers: {
@@ -61,8 +61,16 @@ describe('resolve-celo', () => {
       expect(resolutions.errors.length).toBe(0)
       expect(resolutions.resolutions).toEqual(
         expect.arrayContaining([
-          { address: '0xf00ba7', issuerName: 'unit-test-1', kind: 'celo' },
-          { address: '0xdeadf00d', issuerName: 'unit-test-2', kind: 'celo' },
+          {
+            address: '0xf00ba7',
+            issuerName: 'unit-test-1',
+            kind: 'socialconnect',
+          },
+          {
+            address: '0xdeadf00d',
+            issuerName: 'unit-test-2',
+            kind: 'socialconnect',
+          },
         ]),
       )
     })
@@ -98,7 +106,7 @@ describe('resolve-celo', () => {
       const authSigner = {} as any as AuthSigner
       const serviceContext = {} as any as ServiceContext
 
-      const resolver = new ResolveCelo({
+      const resolver = new ResolveSocialConnect({
         providerUrl: 'http://does.not.matter',
         federatedAttestationsProxyContractAddress: '0x1',
         trustedIssuers: { '0x2': 'unit-test' },
@@ -135,7 +143,7 @@ describe('resolve-celo', () => {
       const authSigner = {} as any as AuthSigner
       const serviceContext = {} as any as ServiceContext
 
-      const resolver = new ResolveCelo({
+      const resolver = new ResolveSocialConnect({
         providerUrl: 'http://does.not.matter',
         federatedAttestationsProxyContractAddress: '0x1',
         trustedIssuers: { '0x2': 'unit-test' },
