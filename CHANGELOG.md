@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/valora-inc/resolve-kit/compare/v2.0.0...v2.0.1) (2023-03-24)
+
+
+### Bug Fixes
+
+* include ABI files in dist ([#174](https://github.com/valora-inc/resolve-kit/issues/174)) ([75f8b24](https://github.com/valora-inc/resolve-kit/commit/75f8b243c874c3fbe3157ab4d1ca0b0066529520))
+
 ## [2.0.0](https://github.com/valora-inc/resolve-kit/compare/v1.0.3...v2.0.0) (2023-03-24)
 
 
