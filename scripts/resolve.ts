@@ -50,7 +50,9 @@ async function main(args: ReturnType<typeof parseArgs>) {
       providerUrl,
       federatedAttestationsProxyContractAddress:
         network.federatedAttestationsProxyContractAddress,
-      trustedIssuers: network.trustedIssuers,
+      // Pass in the account as a trusted issuer since we're likely using it
+      // for ad hoc testing.
+      trustedIssuers: { [account]: 'resolve-kit', ...network.trustedIssuers },
       authSigner: {
         authenticationMethod: OdisUtils.Query.AuthenticationMethod.WALLET_KEY,
         contractKit: kit,
