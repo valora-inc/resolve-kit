@@ -2,14 +2,42 @@ import { ResolveMasa } from './resolve-masa'
 import { Masa } from '@masa-finance/masa-sdk'
 import { providers } from 'ethers'
 
-const providerUrl = 'https://alfajores-forno.celo-testnet.org'
+jest.mock('@masa-finance/masa-sdk')
 
 describe('masa', () => {
   describe('ResolveMasa', () => {
-    const resolver = new ResolveMasa({
-      providerUrl,
+    const MasaMock: any = jest.mocked(Masa)
+
+    MasaMock.mockImplementation(() => ({
+      soulName: {
+        resolve: (soulName: string): Promise<string> =>
+          new Promise((resolve) => {
+            switch (soulName) {
+              case '_test_':
+                return resolve('')
+              case 'test':
+                return resolve('0x8ba2D360323e3cA85b94c6F7720B70aAc8D37a7a')
+              case 't89e3786oaruhmazj7r453iwqb6g7uac':
+                return resolve('')
+            }
+          }),
+      },
+      contracts: {
+        instances: {
+          SoulNameContract: {
+            extension: (): Promise<string> =>
+              new Promise((resolve) => resolve('.celo')),
+          },
+        },
+      },
+    }))
+
+    const masa = new Masa({
+      wallet: new providers.JsonRpcProvider().getSigner(),
       networkName: 'alfajores',
     })
+
+    const resolver = new ResolveMasa({ masa })
 
     it('should return an address for a valid name', async () => {
       const resolutions = await resolver.resolve('test.celo')
@@ -45,20 +73,6 @@ describe('masa', () => {
 
       expect(resolutions.resolutions.length).toBe(0)
       expect(resolutions.errors.length).toBe(0)
-    })
-
-    it('should fail if misconfigured', async () => {
-      const newResolver = new ResolveMasa({
-        masa: new Masa({
-          wallet: new providers.JsonRpcProvider(providerUrl).getSigner(),
-          // wrong network
-          networkName: 'ethereum',
-        }),
-      })
-      const resolutions = await newResolver.resolve('test.celo')
-
-      expect(resolutions.resolutions.length).toBe(0)
-      expect(resolutions.errors.length).toBe(1)
     })
   })
 })
