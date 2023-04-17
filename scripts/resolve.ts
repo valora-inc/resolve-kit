@@ -1,8 +1,13 @@
 /* eslint no-console: "off" */
 import yargs from 'yargs'
 
-import { ResolveGroup, ResolveAddress, ResolveNom } from '../src'
-import { ResolveSocialConnect } from '../src'
+import {
+  ResolveAddress,
+  ResolveGroup,
+  ResolveMasa,
+  ResolveNom,
+  ResolveSocialConnect,
+} from '../src'
 
 import { OdisUtils } from '@celo/identity'
 import { OdisContextName } from '@celo/identity/lib/odis/query'
@@ -37,6 +42,10 @@ async function main(args: ReturnType<typeof parseArgs>) {
     new ResolveNom({
       providerUrl,
       ensRegistryAddress: network.ensRegistryAddress,
+    }),
+    new ResolveMasa({
+      providerUrl,
+      networkName: args['network-id'],
     }),
   ]
 
