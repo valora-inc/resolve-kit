@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/valora-inc/resolve-kit/compare/v2.0.1...v2.1.0) (2023-05-05)
+
+
+### Features
+
+* add masa resolver ([#178](https://github.com/valora-inc/resolve-kit/issues/178)) ([5b4608f](https://github.com/valora-inc/resolve-kit/commit/5b4608fce611af6f03b0f81bf0dca4d5126201a4))
+
+
+### Bug Fixes
+
+* **deps:** update celo packages to v4 ([#181](https://github.com/valora-inc/resolve-kit/issues/181)) ([7c55a13](https://github.com/valora-inc/resolve-kit/commit/7c55a1382964e5eea10087298dda2780be0e1f94))
+* **deps:** update dependency @masa-finance/masa-sdk to ^1.13.4 ([#185](https://github.com/valora-inc/resolve-kit/issues/185)) ([de20720](https://github.com/valora-inc/resolve-kit/commit/de207204b9f767bdf0293b7d9d6864090c79e879))
+* **deps:** update dependency @masa-finance/masa-sdk to ^1.14.0 ([#186](https://github.com/valora-inc/resolve-kit/issues/186)) ([0114e2f](https://github.com/valora-inc/resolve-kit/commit/0114e2fc986c26ac463985fb1454d4608d78b916))
+* **deps:** update dependency @masa-finance/masa-sdk to ^1.14.2 ([#187](https://github.com/valora-inc/resolve-kit/issues/187)) ([1d3ee17](https://github.com/valora-inc/resolve-kit/commit/1d3ee172d6f5f5ba986d28f5febba9cb14c599bb))
+* **deps:** update dependency @masa-finance/masa-sdk to ^1.15.1 ([#190](https://github.com/valora-inc/resolve-kit/issues/190)) ([b83b007](https://github.com/valora-inc/resolve-kit/commit/b83b007294581507a9c5783612e76724a0d86e85))
+
 ### [2.0.1](https://github.com/valora-inc/resolve-kit/compare/v2.0.0...v2.0.1) (2023-03-24)
 
 
