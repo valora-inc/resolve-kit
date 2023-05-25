@@ -1244,10 +1244,10 @@
   dependencies:
     ethers "~5.7.2"
 
-"@masa-finance/masa-sdk@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@masa-finance/masa-sdk/-/masa-sdk-2.1.1.tgz#d95816a6c63531b8a72771b8befd39a429998348"
-  integrity sha512-vUYebzVFLTGcSX6AcIXTucppoxEGAloeoY6lmc6BWEE4FxIS4NY0JwfRB6//2/CICURvL0eEBFGMtENSKcyPcQ==
+"@masa-finance/masa-sdk@^2.2.1":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@masa-finance/masa-sdk/-/masa-sdk-2.2.2.tgz#88aac4a27e8395708c0f1ca0a4528205d72c900a"
+  integrity sha512-RdR3vauOgD9+gS3PvtE371C1yMUfOZqsrrC2EsIUXRMwi5nMyBb83e7O4YkFdYZopchuqE16Gd/o5dSkPYNiQA==
   dependencies:
     "@masa-finance/masa-contracts-identity" "^1.7.0"
     "@masa-finance/masa-token" "^2.0.0"
