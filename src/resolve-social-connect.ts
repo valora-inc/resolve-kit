@@ -88,7 +88,6 @@ export class ResolveSocialConnect implements NameResolver {
           undefined, // blsBlindingClient
           undefined, // sessionID
           undefined, // keyVersion
-          undefined, // endpoint
           abortController,
         )
       ).obfuscatedIdentifier
