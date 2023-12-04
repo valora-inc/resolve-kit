@@ -336,7 +336,7 @@
     web3-eth "1.10.0"
     web3-eth-contract "1.10.0"
 
-"@celo/contractkit@^5.1.0", "@celo/contractkit@^5.2.0":
+"@celo/contractkit@^5.1.0", "@celo/contractkit@^5.2.1":
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/@celo/contractkit/-/contractkit-5.2.1.tgz#55c98e0498c3f0b1a16abe0ebd0a7947931c7a9f"
   integrity sha512-cqLZdJtstZNnZcD6yUzhAvLgwGJ1XNNT6gu+9ZG740Pda3maFtXzfSo1Sbg2aQ6U5ESCX3FqyWgWXg5EXr9TlA==
