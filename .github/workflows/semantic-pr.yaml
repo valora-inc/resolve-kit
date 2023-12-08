@@ -2,6 +2,8 @@ name: Semantic PR title
 
 on:
   pull_request:
+    branches:
+      - main
 
 concurrency:
   group: env-${{ github.ref }}
