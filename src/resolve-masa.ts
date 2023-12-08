@@ -18,7 +18,7 @@ export class ResolveMasa implements NameResolver {
     this.masa = masa
       ? masa
       : new Masa({
-          wallet: new providers.JsonRpcProvider(providerUrl).getSigner(),
+          signer: new providers.JsonRpcProvider(providerUrl).getSigner(),
           networkName: networkName === 'mainnet' ? 'celo' : 'alfajores',
         })
   }

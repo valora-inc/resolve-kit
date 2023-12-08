@@ -33,7 +33,7 @@ describe('masa', () => {
     }))
 
     const masa = new Masa({
-      wallet: new providers.JsonRpcProvider().getSigner(),
+      signer: new providers.JsonRpcProvider().getSigner(),
       networkName: 'alfajores',
     })
 
