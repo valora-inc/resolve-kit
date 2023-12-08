@@ -47,7 +47,7 @@
     "@celo/identity": "^5.1.1",
     "@celo/utils": "^5.0.6",
     "@ensdomains/ensjs": "^2.1.0",
-    "@masa-finance/masa-sdk": "^2.2.2",
+    "@masa-finance/masa-sdk": "^3.14.4",
     "eth-ens-namehash": "^2.0.8",
     "ethers": "^5.7.2"
   },
