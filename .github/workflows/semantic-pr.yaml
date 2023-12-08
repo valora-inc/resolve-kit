@@ -8,6 +8,9 @@ on:
       - edited
       - synchronize
 
+concurrency:
+  group: env-${{ github.ref }}
+
 jobs:
   semantic-pr-title:
     name: Semantic PR title
