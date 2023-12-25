@@ -310,6 +310,11 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@celo/abis@10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@celo/abis/-/abis-10.0.0.tgz#2c1002f2e82b29ca22cec70c988bf90d26fadc68"
+  integrity sha512-DC8UAEz89+1yEQqKzkxOWLYGUv/XWaqPAOkU0lKuQzhvN25ndP3fitawQl53WYn8i3ZPfRWfLO4w75l//tDSbg==
+
 "@celo/base@^5.0.5":
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/@celo/base/-/base-5.0.5.tgz#b4102faba080ce536411b7987259d9ca152b6e6d"
@@ -337,11 +342,32 @@
     web3-eth "1.10.0"
     web3-eth-contract "1.10.0"
 
-"@celo/contractkit@^5.1.0", "@celo/contractkit@^5.2.1":
+"@celo/contractkit@^5.1.0":
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/@celo/contractkit/-/contractkit-5.2.1.tgz#55c98e0498c3f0b1a16abe0ebd0a7947931c7a9f"
   integrity sha512-cqLZdJtstZNnZcD6yUzhAvLgwGJ1XNNT6gu+9ZG740Pda3maFtXzfSo1Sbg2aQ6U5ESCX3FqyWgWXg5EXr9TlA==
   dependencies:
+    "@celo/base" "^6.0.0"
+    "@celo/connect" "^5.1.1"
+    "@celo/utils" "^5.0.6"
+    "@celo/wallet-local" "^5.1.1"
+    "@types/bn.js" "^5.1.0"
+    "@types/debug" "^4.1.5"
+    bignumber.js "^9.0.0"
+    cross-fetch "3.0.6"
+    debug "^4.1.1"
+    fp-ts "2.1.1"
+    io-ts "2.0.1"
+    semver "^7.3.5"
+    web3 "1.10.0"
+    web3-core-helpers "1.10.0"
+
+"@celo/contractkit@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@celo/contractkit/-/contractkit-6.0.0.tgz#2e9e33a9a29d5a7f6aacc369430719205e48d98a"
+  integrity sha512-vjIWC2Csuk5wFP9DX4d4/AYN5FHa3cuKlPV3hfB3WlR7HbCXUD8nwuEJi871cId1AvlYk0YZ9X6Kkr3MSYt8rw==
+  dependencies:
+    "@celo/abis" "10.0.0"
     "@celo/base" "^6.0.0"
     "@celo/connect" "^5.1.1"
     "@celo/utils" "^5.0.6"
