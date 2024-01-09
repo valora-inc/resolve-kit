@@ -5,9 +5,11 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "build:scripts": "tsc --project scripts/tsconfig.json",
+    "typecheck": "yarn build && yarn build:scripts",
     "lint": "eslint --ext=.tsx,.ts,.json --fix src/ scripts/",
     "format": "prettier --loglevel error --write .",
-    "test": "jest --coverage && prettier --check \"./**/*.ts\" && eslint --ext=.tsx,.ts,.json src/ scripts/",
+    "test": "yarn typecheck && jest --coverage && prettier --check \"./**/*.ts\" && eslint --ext=.tsx,.ts,.json src/ scripts/",
     "prepublish": "rm -rf dist && tsc",
     "release": "npx semantic-release",
     "resolve": "ts-node --files=src/global.d.ts scripts/resolve.ts"
@@ -20,7 +22,7 @@
   "license": "Apache-2.0",
   "prettier": "@valora/prettier-config",
   "devDependencies": {
-    "@celo/contractkit": "^6.0.0",
+    "@celo/contractkit": "^5.2.1",
     "@types/jest": "^29.5.11",
     "@types/node": "^17.0.45",
     "@typescript-eslint/eslint-plugin": "^6.17.0",
