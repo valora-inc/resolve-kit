@@ -51,7 +51,8 @@
     "@ensdomains/ensjs": "^2.1.0",
     "@masa-finance/masa-sdk": "^3.14.4",
     "eth-ens-namehash": "^2.0.8",
-    "ethers": "^5.7.2"
+    "ethers": "^5.7.2",
+    "viem": "^2.0.3"
   },
   "files": [
     "dist"
