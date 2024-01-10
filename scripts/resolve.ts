@@ -5,7 +5,6 @@ import {
   ResolveAddress,
   ResolveGroup,
   ResolveMasa,
-  ResolveNom,
   ResolveSocialConnect,
   ResolveEns,
 } from '../src'
@@ -18,7 +17,6 @@ import { newKit } from '@celo/contractkit'
 const NETWORKS: Record<string, any> = {
   alfajores: {
     providerUrl: 'https://alfajores-forno.celo-testnet.org',
-    ensRegistryAddress: ResolveNom.AlfajoresENSRegsitryAddress,
     federatedAttestationsProxyContractAddress:
       ResolveSocialConnect.AlfajoresFederatedAttestationsProxyContractAddress,
     trustedIssuers: ResolveSocialConnect.AlfajoresDefaultTrustedIssuers,
@@ -26,7 +24,6 @@ const NETWORKS: Record<string, any> = {
   },
   mainnet: {
     providerUrl: 'https://forno.celo.org',
-    ensRegistryAddress: ResolveNom.MainnetENSRegsitryAddress,
     federatedAttestationsProxyContractAddress:
       ResolveSocialConnect.MainnetFederatedAttestationsProxyContractAddress,
     trustedIssuers: ResolveSocialConnect.MainnetDefaultTrustedIssuers,
@@ -40,10 +37,6 @@ async function main(args: ReturnType<typeof parseArgs>) {
 
   const resolvers = [
     new ResolveAddress(),
-    new ResolveNom({
-      providerUrl,
-      ensRegistryAddress: network.ensRegistryAddress,
-    }),
     new ResolveMasa({
       providerUrl,
       networkName: args['network-id'],

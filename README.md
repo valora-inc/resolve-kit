@@ -11,16 +11,13 @@ yarn add @valora/resolve-kit
 ## Example
 
 ```ts
-import { ResolveGroup, ResolveAddress, ResolveNom } from '@valora/resolve-kit'
+import { ResolveGroup, ResolveAddress, ResolveEns } from '@valora/resolve-kit'
 
 const providerUrl = 'https://forno.celo.org'
 
 const resolver = new ResolveGroup([
   new ResolveAddress(),
-  new ResolveNom({
-    providerUrl,
-    ensRegistryAddress: ResolveNom.MainnetENSRegsitryAddress,
-  }),
+  new ResolveEns({}),
 ])
 
 // Likely resolve 'foo' to a nom with a resolution address
