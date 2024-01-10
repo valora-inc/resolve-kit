@@ -2,7 +2,6 @@ import { Address } from '@celo/base/lib/address'
 
 export enum ResolutionKind {
   Address = 'address',
-  Nom = 'nom',
   SocialConnect = 'social-connect',
   Masa = 'masa',
   Ens = 'ens',
