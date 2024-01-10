@@ -60,5 +60,5 @@ yarn resolve --id 0x121212121212121212121212121212121212121
 
 ## Release
 
-This project uses `semantic-release` to automatically publish new versions to NPM. You must use PR titles adhering to the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) 
+This project uses `semantic-release` to automatically publish new versions to NPM. You must use PR titles adhering to the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
 standard (also enforced in CI) for this to work properly.

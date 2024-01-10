@@ -7,6 +7,7 @@ import {
   ResolveMasa,
   ResolveNom,
   ResolveSocialConnect,
+  ResolveEns,
 } from '../src'
 
 import { OdisUtils } from '@celo/identity'
@@ -47,6 +48,7 @@ async function main(args: ReturnType<typeof parseArgs>) {
       providerUrl,
       networkName: args['network-id'],
     }),
+    new ResolveEns({}),
   ]
 
   if (args['private-key']) {

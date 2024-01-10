@@ -5,6 +5,7 @@ export enum ResolutionKind {
   Nom = 'nom',
   SocialConnect = 'social-connect',
   Masa = 'masa',
+  Ens = 'ens',
 }
 
 export interface NameResolution {
