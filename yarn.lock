@@ -10895,10 +10895,10 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-viem@^2.1.0:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/viem/-/viem-2.3.1.tgz#ec274b6939a5c12a9e8ff09b41ee619e528d8ccd"
-  integrity sha512-bZ2KvbnoQ+A60bePGH6PTpO9xdWEvvCAlSjNt+cvmw0eHMjj5aqfhBN9a82oTonJGJsufvt1hwKUlEvVfSsM3g==
+viem@^2.1.1:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/viem/-/viem-2.4.0.tgz#977e6bf4ee67c0e616f853961fbb699cca19700d"
+  integrity sha512-CPP4ZBy0vKqJE1L2Dzrw/am3vD9p42H3nQwqNBk3o3R8jnM4vwncHjdu+V8tWdk3ZyM8now6Bdlqv76WPpZQhg==
   dependencies:
     "@adraffy/ens-normalize" "1.10.0"
     "@noble/curves" "1.2.0"
