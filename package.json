@@ -50,7 +50,7 @@
     "@celo/utils": "^5.0.6",
     "@masa-finance/masa-sdk": "^3.14.6",
     "ethers": "^5.7.2",
-    "viem": "^2.2.0"
+    "viem": "^2.3.1"
   },
   "files": [
     "dist"
