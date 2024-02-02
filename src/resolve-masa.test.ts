@@ -1,6 +1,6 @@
 import { ResolveMasa } from './resolve-masa'
 import { Masa } from '@masa-finance/masa-sdk'
-import { providers } from 'ethers'
+import { VoidSigner, constants, providers } from 'ethers'
 
 jest.mock('@masa-finance/masa-sdk')
 
@@ -33,7 +33,10 @@ describe('masa', () => {
     }))
 
     const masa = new Masa({
-      signer: new providers.JsonRpcProvider().getSigner(),
+      signer: new VoidSigner(
+        constants.AddressZero,
+        new providers.JsonRpcProvider(),
+      ),
       networkName: 'alfajores',
     })
 
