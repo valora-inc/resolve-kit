@@ -1,6 +1,6 @@
 import { NameResolutionResults, NameResolver, ResolutionKind } from './types'
 
-import { providers } from 'ethers'
+import { VoidSigner, constants, providers } from 'ethers'
 import { Masa } from '@masa-finance/masa-sdk'
 
 export class ResolveMasa implements NameResolver {
@@ -18,7 +18,10 @@ export class ResolveMasa implements NameResolver {
     this.masa = masa
       ? masa
       : new Masa({
-          signer: new providers.JsonRpcProvider(providerUrl).getSigner(),
+          signer: new VoidSigner(
+            constants.AddressZero,
+            new providers.JsonRpcProvider(providerUrl),
+          ),
           networkName: networkName === 'mainnet' ? 'celo' : 'alfajores',
         })
   }
