@@ -1343,10 +1343,10 @@
   dependencies:
     ethers "~5.7.2"
 
-"@masa-finance/masa-sdk@^3.27.2":
-  version "3.27.3"
-  resolved "https://registry.yarnpkg.com/@masa-finance/masa-sdk/-/masa-sdk-3.27.3.tgz#25f5a4bf9f39a38b65e11dee4af4bf79214fac59"
-  integrity sha512-GoDOLVaZq/xF+d9JmNqRG7uAS0Liy8PXmqHueKJckqEgOoFS51iJquJzMfyL7BTe4G1Z5swrf4iah996Gopknw==
+"@masa-finance/masa-sdk@^3.27.3":
+  version "3.27.4"
+  resolved "https://registry.yarnpkg.com/@masa-finance/masa-sdk/-/masa-sdk-3.27.4.tgz#01e10b2280530c796dbd8de338f16f4c9764e10e"
+  integrity sha512-kv4hQZRihlOWR6A51KP0Yc1MvpqNCGVOMQlrdZ/1qh5HKkki2B6r/8vBp+KjJHVI0GEgGJEhELcoXFVASXucXw==
   dependencies:
     "@ethersproject/abi" "^5.7.0"
     "@ethersproject/abstract-provider" "^5.7.0"
@@ -1357,17 +1357,17 @@
     "@layerzerolabs/lz-v2-utilities" "^2.1.27"
     "@masa-finance/masa-contracts-identity" "^1.12.0"
     "@masa-finance/masa-contracts-marketplace" "^2.1.16"
-    "@masa-finance/masa-token" "^2.6.0"
+    "@masa-finance/masa-token" "^2.6.1"
     arweave "1.11.8"
     axios "^1.6.8"
     ethers "~5.7.2"
     grapheme-splitter "^1.0.4"
     typescript "^5.4.4"
 
-"@masa-finance/masa-token@^2.6.0":
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/@masa-finance/masa-token/-/masa-token-2.6.0.tgz#ba17912ac544d3ede3bd99d31ba65cf48619c4da"
-  integrity sha512-8cP1+Cc7ijvg2Q1TQI/7KFZ0VjFlLeCGFWvzkrsTeSpxHVP+E26ofB2cTxZjv7VNV1pPJ1gGo0diWFE7tMsN/Q==
+"@masa-finance/masa-token@^2.6.1":
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/@masa-finance/masa-token/-/masa-token-2.6.1.tgz#7b28ba29b496daa8e3a6252431afcc69834bab0c"
+  integrity sha512-pO4WY5hf0fUW+r6MR1f1L5hIYptLKj0lpwIlusaO2KO9mOY909nKae7xEpaNSjM2dgPTqNRVmB7XUxMKx/c8vA==
 
 "@noble/curves@1.1.0", "@noble/curves@~1.1.0":
   version "1.1.0"
