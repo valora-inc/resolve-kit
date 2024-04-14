@@ -1343,7 +1343,7 @@
   dependencies:
     ethers "~5.7.2"
 
-"@masa-finance/masa-sdk@^3.30.0":
+"@masa-finance/masa-sdk@^3.30.2":
   version "3.30.6"
   resolved "https://registry.yarnpkg.com/@masa-finance/masa-sdk/-/masa-sdk-3.30.6.tgz#1be2179549713329cf77227d2ddf416e2a813eca"
   integrity sha512-5kBj1UFIZr7+5SKOiUmg77RuWzaCiXcjtU3ee3+9vwWmpHo0T2iGSYJw4oDW09CBp8iZu15Z16kfWaCI8OfuWA==
