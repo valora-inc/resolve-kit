@@ -39,7 +39,7 @@
     "prettier": "^3.3.2",
     "semantic-release": "^24.0.0",
     "commit-and-tag-version": "^12.4.1",
-    "ts-jest": "^29.1.4",
+    "ts-jest": "^29.1.5",
     "ts-node": "^10.9.2",
     "typescript": "5.4.5",
     "yargs": "^17.7.2"
