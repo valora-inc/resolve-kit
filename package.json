@@ -48,7 +48,7 @@
     "@celo/base": "^6.0.0",
     "@celo/identity": "^5.1.1",
     "@celo/utils": "^5.0.6",
-    "@masa-finance/masa-sdk": "^3.41.0",
+    "@masa-finance/masa-sdk": "^3.41.1",
     "ethers": "^5.7.2",
     "viem": "^2.8.16"
   },
