@@ -1325,7 +1325,7 @@
   resolved "https://registry.yarnpkg.com/@masa-finance/masa-contracts-staking/-/masa-contracts-staking-0.5.2.tgz#24b4e32756fea3e9abd0edb1913f7f4f988bcb36"
   integrity sha512-CaYtFLStLjhHClaFjRIDKKxqJOAJZlET/iFixqIxvDXW0l0lJ5v1vIkJyfiYUj0UhSN2AnEDMzoftsWXQbtq4g==
 
-"@masa-finance/masa-sdk@^4.6.0":
+"@masa-finance/masa-sdk@^4.7.0":
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/@masa-finance/masa-sdk/-/masa-sdk-4.7.0.tgz#0e3d5334173feb581a7a366c1b1467c86fe690ff"
   integrity sha512-m6ib3rhPxoPguhcpRf4dMLiUgelDsqs93OAV2wP1QOvSNpZj7yN4b7ZsB1q15mp5ZbOBlzWlooqEEKKsIQXzYg==
