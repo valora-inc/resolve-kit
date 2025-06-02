@@ -42,7 +42,7 @@
     "ts-jest": "^29.3.0",
     "ts-node": "^10.9.2",
     "typescript": "5.8.3",
-    "yargs": "^17.7.2"
+    "yargs": "^18.0.0"
   },
   "dependencies": {
     "@celo/base": "^6.0.0",
