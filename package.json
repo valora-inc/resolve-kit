@@ -15,7 +15,7 @@
     "resolve": "ts-node --files=src/global.d.ts scripts/resolve.ts"
   },
   "engines": {
-    "node": "^20"
+    "node": ">=20"
   },
   "repository": "git@github.com:valora-inc/resolve-kit.git",
   "author": "Valora Inc",
