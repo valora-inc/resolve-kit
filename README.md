@@ -15,10 +15,7 @@ import { ResolveGroup, ResolveAddress, ResolveEns } from '@valora/resolve-kit'
 
 const providerUrl = 'https://forno.celo.org'
 
-const resolver = new ResolveGroup([
-  new ResolveAddress(),
-  new ResolveEns({}),
-])
+const resolver = new ResolveGroup([new ResolveAddress(), new ResolveEns({})])
 
 // Likely resolve 'foo' to a nom with a resolution address
 const foo = await resolver.resolve('foo')
