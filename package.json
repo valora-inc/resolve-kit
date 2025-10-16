@@ -63,5 +63,8 @@
       "main"
     ],
     "preset": "conventionalcommits"
+  },
+  "resolutions": {
+    "conventional-changelog-conventionalcommits": ">= 8.0.0"
   }
 }
