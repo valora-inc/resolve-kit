@@ -27,8 +27,8 @@ describe('resolve-ens', () => {
     it('return resolutions for mapped .eth', async () => {
       const mockAddress = '0x1212121212121212121212121212121212121212'
       const mockViem = {
-        getEnsAddress: ({ coinType }: { coinType: number }) => {
-          if (coinType === 60) {
+        getEnsAddress: ({ coinType }: { coinType: bigint }) => {
+          if (coinType === BigInt(60)) {
             return mockAddress
           }
           return null
@@ -47,8 +47,8 @@ describe('resolve-ens', () => {
     it('returns an error for multiple different .eth resolutions', async () => {
       const mockAddress = '0x1212121212121212121212121212121212121212'
       const mockViem = {
-        getEnsAddress: ({ coinType }: { coinType: number }) => {
-          if (coinType === 60) {
+        getEnsAddress: ({ coinType }: { coinType: bigint }) => {
+          if (coinType === BigInt(60)) {
             return mockAddress
           }
           return '0x3333333333333333333333333333333333333333'
@@ -80,8 +80,8 @@ describe('resolve-ens', () => {
     it('does not return resolution if not ethereum', async () => {
       const mockAddress = '0x1212121212121212121212121212121212121212'
       const mockViem = {
-        getEnsAddress: ({ coinType }: { coinType: number }) => {
-          if (coinType === 60) {
+        getEnsAddress: ({ coinType }: { coinType: bigint }) => {
+          if (coinType === BigInt(60)) {
             return null
           }
           return mockAddress

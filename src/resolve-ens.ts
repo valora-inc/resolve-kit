@@ -47,13 +47,13 @@ export class ResolveEns implements NameResolver {
     try {
       const ethereumAddressPromise = this.viem.getEnsAddress({
         name,
-        coinType: 60, // Ethereum
+        coinType: BigInt(60), // Ethereum
       })
 
       const otherAddressesPromises = this.coinTypesToCheck.map((coinType) =>
         this.viem.getEnsAddress({
           name,
-          coinType,
+          coinType: BigInt(coinType),
         }),
       )
 
