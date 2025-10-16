@@ -64,7 +64,7 @@ export class ResolveSocialConnect implements NameResolver {
       federatedAttestationsProxyContractAddress,
     )
 
-    this.federatedAttestationsContract = federatedAttestationsContract
+    this.federatedAttestationsContract = federatedAttestationsContract as any
     this.trustedIssuers = trustedIssuers
     this.authSigner = authSigner
     this.account = account
