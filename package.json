@@ -49,7 +49,7 @@
     "@celo/identity": "^5.1.2",
     "@celo/utils": "^7.0.0",
     "@masa-finance/masa-sdk": "^4.7.4",
-    "ethers": "^5.8.0",
+    "ethers": "^6.16.0",
     "viem": "^2.24.3"
   },
   "files": [
